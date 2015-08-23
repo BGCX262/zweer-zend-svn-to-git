@@ -1,0 +1,17 @@
+<?php
+
+$this->title = $this->page['Titolo'];
+$this->headTitle($this->title);
+
+?>
+
+<div class="news_container">
+    <?php foreach($this->news as $News) : ?>
+    <div class="news">
+        <div class="news_title"><?= $this->escape($News->Titolo) ?></div>
+        <div class="news_date"><?= $this->escape($News->Data) ?></div>
+        <div class="news_author"><?= $this->escape($News->IDAutore) ?></div>
+        <div class="news_text"><?= $News->Testo ?></div>
+    </div>
+    <?php endforeach; ?>
+</div>

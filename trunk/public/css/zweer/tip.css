@@ -1,0 +1,11 @@
+.zweer_tip
+{
+    background-color: black;
+    padding: 5px 15px;
+    color: #ddd;
+    font-weight: bold;
+    font-size: 11px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}

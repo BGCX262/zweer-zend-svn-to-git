@@ -1,0 +1,8 @@
+<?php
+
+$this->title = 'Pages';
+$this->headTitle('Admin - ' . $this->title);
+
+?>
+<a href="<?= $this->url(array('controller' => 'pages', 'action' => 'add', 'module' => 'admin')) ?>" title="Add page">Add Page</a>
+<?= $this->printUlPages($this->pages) ?>

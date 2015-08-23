@@ -1,0 +1,47 @@
+<?php
+
+$this->title = 'News';
+$this->headTitle($this->title);
+
+?>
+
+<a href="<?= $this->url(array('controller' => 'news', 'action' => 'add')) ?>" title="Add news">Add a news</a>
+
+<ul>
+<?php foreach($this->pages as $Page) : ?>
+	<li>
+		<?= $this->escape($Page['Titolo']) ?>:
+		<ul>
+		<?php foreach($Page['News'] as $News) : ?>
+			<li>
+				<a href="<?= $this->url(array('IDNews' => $News->IDNews), 'newsEdit') ?>" title="Edit news">
+					<?= $this->img('images/icons/edit_16x16.png', array('alt' => 'Edit')) ?>
+				</a>
+				<a href="<?= $this->url(array('IDNews' => $News->IDNews), 'newsDelete') ?>" title="Delete news">
+					<?= $this->img('images/icons/delete_16x16.png', array('alt' => 'Delete', 'onclick' => "return confirm('Are you sure you want to delete this news?');")) ?>
+				</a>
+				<?= $this->escape($News->Titolo) ?>
+			</li>
+		<?php endforeach; ?>
+		</ul>
+	</li>
+<?php endforeach; ?>
+<?php if(count($this->news) > 0) : ?>
+	<li>
+	    News without page:
+		<ul>
+		<?php foreach($this->news as $News) : ?>
+			<li>
+				<a href="<?= $this->url(array('IDNews' => $News->IDNews), 'newsEdit') ?>" title="Edit news">
+					<?= $this->img('images/icons/edit_16x16.png', array('alt' => 'Edit')) ?>
+				</a>
+				<a href="<?= $this->url(array('IDNews' => $News->IDNews), 'newsDelete') ?>" title="Delete news">
+					<?= $this->img('images/icons/delete_16x16.png', array('alt' => 'Delete', 'onclick' => "return confirm('Are you sure you want to delete this news?');")) ?>
+				</a>
+				<?= $this->escape($News->Titolo) ?>
+			</li>
+		<?php endforeach; ?>
+		</ul>
+	</li>
+<?php endif; ?>
+</ul>

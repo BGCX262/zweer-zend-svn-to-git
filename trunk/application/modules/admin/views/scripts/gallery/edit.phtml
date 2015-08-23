@@ -1,0 +1,12 @@
+<?php
+
+$this->title = 'Edit an album';
+$this->headTitle('Admin - ' . $this->title);
+
+?>
+<a href="<?= $this->url(array('action' => 'index', 'controller' => 'gallery', 'module' => 'admin'), 'default') ?>">&lt;-- Back to the album list</a>
+<?php
+
+echo $this->form;
+
+?>

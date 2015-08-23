@@ -1,0 +1,20 @@
+<?php
+
+$this->title = 'View message';
+$this->headTitle('Messages - View');
+
+?>
+<a href="<?= $this->url(array('controller' => 'messages', 'action' => 'index'), 'default') ?>">&lt;-- Back to inbox</a>
+<div class="messages_container">
+    <?php foreach($this->messages as $Message) : ?>
+    <div class="message">
+        <div class="message_author"><?= $this->escape($Message->Utente) ?></div>
+        <div class="message_text"><?= $this->escape($Message->Testo) ?></div>
+    </div>
+    <?php endforeach; ?>
+</div>
+<?php
+
+echo $this->form;
+
+?>

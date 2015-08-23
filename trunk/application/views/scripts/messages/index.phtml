@@ -1,0 +1,16 @@
+<?php
+
+$this->title = 'Inbox';
+$this->headTitle('Messages - Inbox');
+
+?>
+<a href="<?= $this->url(array('action' => 'create', 'controller' => 'messages'), 'default') ?>" title="Create Message">Create message</a>
+<div class="messages_list_container">
+    <?php foreach($this->messages as $Message) : ?>
+    <div class="message_list">
+        <div class="message_list_author"><?= $this->escape($Message->Utente) ?></div>
+		<div class="message_list_date"><?= $this->escape($Message->Data) ?></div>
+        <div class="message_list_text"><a href="<?= $this->url(array('IDMessage' => $Message->IDPadre), 'messageView') ?>"><?= substr($this->escape($Message->Testo), 0, 50) ?></a></div>
+    </div>
+    <?php endforeach; ?>
+</div>

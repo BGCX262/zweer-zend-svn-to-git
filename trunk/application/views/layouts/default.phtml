@@ -1,0 +1,29 @@
+<?php
+$this->css();
+$this->js();
+?>
+<?= $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <?= $this->headTitle() ?>
+    <?= $this->headMeta() ?>
+    <?= $this->headLink() ?>
+    <?= $this->headStyle() ?>
+    <?= $this->headScript() ?>
+</head>
+
+<body>
+    <div id="page_container">
+        <div id="page_header">
+            <div id="page_header_logged"><?= $this->loggedInAs() ?></div>
+            <div id="page_header_menu"><?= $this->menu() ?></div>
+        </div>
+        <div id="page_content">
+            <h1><?= $this->title ?></h1>
+            <?= $this->layout()->content ?>
+        </div>
+    </div>
+</body>
+
+</html>

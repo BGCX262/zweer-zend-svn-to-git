@@ -1,0 +1,33 @@
+<?php
+
+$this->title = 'Gallery';
+$this->headTitle('Admin - ' . $this->title);
+
+$OldPage = '';
+
+?>
+<a href="<?= $this->url(array('controller' => 'gallery', 'action' => 'add', 'module' => 'admin'), 'default') ?>" title="Add an album">Add an Album</a>
+<ul>
+<?php foreach($this->pages as $Page) : ?>
+    <?php if($OldPage != $Page['IDPagina']) : ?>
+        <?php if($OldPage != '') : ?>
+        </ul>
+    </li>
+        <?php endif; ?>
+    <li>
+        <?= $this->escape($Page['Titolo']) ?>:
+        <ul>
+    <?php $OldPage = $Page['IDPagina']; ?>
+    <?php endif; ?>
+            <li>
+                <a href="<?= $this->url(array('IDAlbum' => $Page['IDAlbum']), 'galleryEdit') ?>" title="Edit Album"><?= $this->img('images/icons/edit_16x16.png', array('alt' => 'Edit')) ?></a>
+                <a href="<?= $this->url(array('IDAlbum' => $Page['IDAlbum']), 'galleryDelete') ?>" title="Delete Album"><?= $this->img('images/icons/delete_16x16.png', array('alt' => 'Delete')) ?></a>
+                <a href="<?= $this->url(array('IDAlbum' => $Page['IDAlbum']), 'galleryUpload') ?>" title="Manage Photos"><?= $this->img('images/icons/picture_16x16.png', array('alt' => 'Photos')) ?></a>
+                <?= $this->escape($Page['TitoloAlbum']) ?>
+            </li>
+<?php endforeach; ?>
+<?php if($OldPage != '') : ?>
+        </ul>
+    </li>
+<?php endif; ?>
+</ul>

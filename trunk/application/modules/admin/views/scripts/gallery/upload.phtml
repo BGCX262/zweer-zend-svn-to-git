@@ -1,0 +1,46 @@
+<?php
+
+$this->title = 'Manage photos';
+$this->headTitle('Admin - ' . $this->title);
+$this->js(array('mootools/3rdpart/upload/Source/Request.File',
+                'mootools/3rdpart/upload/Source/Form.MultipleFileInput',
+                'mootools/3rdpart/upload/Source/Form.Upload',
+                'mootools/3rdpart/moodialog/Source/MooDialog',
+                'mootools/3rdpart/moodialog/Source/MooDialog.Fx',
+                'mootools/3rdpart/moodialog/Source/MooDialog.Alert',
+                'mootools/3rdpart/milkbox/milkbox',
+                'backend/gallery'));
+$this->css('js/mootools/3rdpart/milkbox/css/milkbox', true);
+$this->css(array('backend/gallery'));
+
+?>
+<form action="<?= $this->url(array('IDAlbum' => $this->IDAlbum), 'galleryUpload') ?>" method="post" enctype="multipart/form-data">
+<fieldset>
+	<legend>Upload an image</legend>
+    <div class="formRow">
+        <label for="url" class="floated">Image:</label>
+        <input type="file" id="url" name="img[]" multiple="multiple"/>
+    </div>
+
+    <div class="formRow">
+        <input type="submit" name="i" value="Upload"/>
+    </div>
+</fieldset>
+</form>
+
+<form action="<?= $this->url(array('IDAlbum' => $this->IDAlbum), 'galleryUpload') ?>" method="post">
+<fieldset>
+    <legend>Modify and Delete images</legend>
+    <div class="gallery_upload_modify_container clearfix">
+        <?php foreach($this->photos as $Photo) : ?>
+        <div class="gallery_upload_modify_photo">
+            <input type="checkbox" value="<?= $Photo['IDFoto'] ?>" name="delete[]"/>
+            <a href="<?= $this->url(array('IDPhoto' => $Photo['IDFoto']), 'photoModify') ?>" data-milkbox="single" data-milkbox-size="width:600,height:460">
+                <?= $this->img('images/gallery/' . $Photo['IDPadre'] . '/' . $Photo['IDFoto'] . '_small.' . $Photo['Estensione'], array('alt' => $Photo['IDFoto'], 'title' => 'Modify')) ?>
+            </a>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    <input type="submit" name="i" value="Delete"/>
+</fieldset>
+</form>

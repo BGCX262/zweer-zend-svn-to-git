@@ -1,0 +1,12 @@
+<?php
+
+$this->title = 'Create Message';
+$this->headTitle('Messages - Create');
+
+?>
+<a href="<?= $this->url(array('controller' => 'messages', 'action' => 'index'), 'default') ?>">&lt;-- Back to inbox</a>
+<?php
+
+echo $this->form;
+
+?>

@@ -1,0 +1,9 @@
+.zweer_mask
+{
+	position: absolute;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+	z-index: 999;
+	background: #111;
+}

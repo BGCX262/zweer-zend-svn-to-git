@@ -1,0 +1,10 @@
+<?php
+
+$this->title = 'Add a new page';
+$this->headTitle('Admin - ' . $this->title);
+$this->js('ckeditor/ckeditor');
+$this->js('backend/pages');
+
+?>
+<a href="<?= $this->url(array('controller' => 'pages', 'action' => 'index', 'module' => 'admin'), 'default') ?>" title="Back to page admin">&lt;-- Back to page admin</a>
+<?= $this->form ?>

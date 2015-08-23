@@ -1,0 +1,57 @@
+/**
+ * Container
+ */
+div#page_container
+{
+    width: 800px;
+    background: white;
+    margin: auto;
+    position: relative;
+}
+
+/**
+ * Header
+ */
+div#page_container div#page_header
+{
+    width: 800px;
+    padding: 3px 15px;
+    height: 34px;
+    position: fixed;
+    background: url("../../images/background/title.png") top no-repeat;
+}
+/** Logged */
+div#page_container div#page_header div#page_header_logged
+{
+    float: right;
+}
+/** Menu */
+div#page_container div#page_header div#page_header_menu
+{
+
+}
+div#page_container div#page_header div#page_header_menu ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+div#page_container div#page_header div#page_header_menu ul li
+{
+    display: block;
+    float: left;
+}
+div#page_container div#page_header div#page_header_menu ul li a
+{
+    padding: 3px 10px;
+    display: block;
+    font-size: large;
+}
+
+/**
+ * Content
+ */
+div#page_container div#page_content
+{
+    padding-top: 50px;
+}

@@ -1,0 +1,14 @@
+<?php
+
+$this->title = 'Edit a news';
+$this->headTitle('Admin - ' . $this->title);
+$this->js('ckeditor/ckeditor');
+$this->js('backend/news');
+
+?>
+<a href="<?= $this->url(array('action' => 'index', 'controller' => 'news', 'module' => 'admin'), 'default') ?>">&lt;-- Back to the news list</a>
+<?php
+
+echo $this->form;
+
+?>
